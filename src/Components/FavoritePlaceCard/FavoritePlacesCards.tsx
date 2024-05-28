@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {Button, ButtonProps, Card, CardContent, styled} from "@mui/material";
 import "./FavoritePlacesCards.css"
 import ShowPlacesToVisitModal from "../ShowPlacesToVisitModal/ShowPlacesToVisitModal";
+import DeleteIcon from '@mui/icons-material/Delete';
+import {deletePlaceService} from "../../Service/APIService";
 
 interface PlacesToVisit{
     name: string;
@@ -16,9 +18,10 @@ interface Place {
     createdAt: string;
     __v: number;
     createdBy: string;
+    refreshData: () => void;
 }
 
-const FavoritePlacesCards: React.FC<Place>= ({city,placesToVisit,_id,createdBy,createdAt,__v}) => {
+const FavoritePlacesCards: React.FC<Place>= ({city,placesToVisit,_id,createdBy,createdAt,__v, refreshData}) => {
 
     const[detailsVisiblity, setDetailsVisiblity] = useState<boolean>(false);
 
@@ -43,6 +46,13 @@ const FavoritePlacesCards: React.FC<Place>= ({city,placesToVisit,_id,createdBy,c
         },
     }));
 
+    const handleDelete = async () => {
+        const DeleteResp = await deletePlaceService(_id);
+        if(DeleteResp.status === 204){
+            refreshData();
+        }
+    }
+
 
     return (
         <>
@@ -52,11 +62,15 @@ const FavoritePlacesCards: React.FC<Place>= ({city,placesToVisit,_id,createdBy,c
             }} className="fav-place-cards-com">
                 <CardContent >
                     <div>
-                        <div style={{display: "flex", justifyContent: "center"}}>
-                            <h3>{city}</h3>
+                        <div style={{display:"flex" ,alignItems:"center"}}>
+                            <div style={{display: "flex", justifyContent: "center" , flex:"1 0 90%"}}>
+                                <h3>{city}</h3>
+                            </div>
+                            <DeleteIcon onClick={handleDelete} style={{cursor:"pointer"}}/>
                         </div>
+
                         <div style={{display: "flex", justifyContent: "center"}}>
-                            <p>Added at - {createdAt}</p>
+                        <p>Added at - {createdAt}</p>
                         </div>
                         <div style={{display: "flex", justifyContent: "center"}}>
                             <ColorButton variant="contained" type={"button"} onClick={showDetails}>

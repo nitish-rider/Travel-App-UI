@@ -13,7 +13,7 @@ export const loginService = async (body) => {
     });
 }
 
-export const getAllSuggestedPlacesService = async (body) => {
+export const getAllSuggestedPlacesService = async () => {
     return await axios.get(`${BASE_API_URL}/planner/places`, {
         headers: headers,
     });
@@ -21,6 +21,12 @@ export const getAllSuggestedPlacesService = async (body) => {
 
 export const getPlaceSuggestionService  = async (body) => {
     return await axios.post(`${BASE_API_URL}/planner/places/suggest`, body,{
+        headers: headers,
+    });
+}
+
+export const deletePlaceService = async (id) => {
+    return await axios.delete(`${BASE_API_URL}/planner/places/${id}`, {
         headers: headers,
     });
 }

@@ -53,6 +53,10 @@ const HomePage = () => {
 
   }
 
+  const refreshData = () => {
+    getAllSuggestedPlaces()
+  }
+
   const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
     color: "#FFF",
     backgroundColor: "black",
@@ -90,7 +94,7 @@ const HomePage = () => {
         {places.map((place) => (
             <FavoritePlacesCards key={place._id} city={place.city} __v={place.__v}
                                  _id={place._id} placesToVisit={place.placesToVisit} createdAt={place.createdAt}
-                                 createdBy={place.createdBy}/>
+                                 createdBy={place.createdBy} refreshData={refreshData}/>
         ))}
       </div>
     </div>
