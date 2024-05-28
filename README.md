@@ -1,4 +1,4 @@
-# Travel APP Backend
+# Travel APP UI
 
 Clone the repo:
 
