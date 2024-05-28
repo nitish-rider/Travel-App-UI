@@ -1,0 +1,27 @@
+.login-container{
+    width: 100vw;
+    min-height: 88vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: #ecedeb;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+}
+.card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

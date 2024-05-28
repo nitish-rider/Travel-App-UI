@@ -1,0 +1,13 @@
+.container{
+    height: 70px;
+    margin-top: -10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header{
+    border-bottom: 1px solid silver;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}

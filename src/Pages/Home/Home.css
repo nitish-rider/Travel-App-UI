@@ -1,0 +1,28 @@
+.home-container{
+    width: 100vw;
+    min-height: 88vh;
+}
+.search-container{
+    min-width: 450px;
+    max-height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.place-inp{
+    width: 300px;
+}
+
+.cards-container{
+    min-height: 68vh;
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cards-container > * {
+    flex: 1 0 32%;
+    max-width: 32%;
+}

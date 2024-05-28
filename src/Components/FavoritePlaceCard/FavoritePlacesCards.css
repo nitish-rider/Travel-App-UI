@@ -1,0 +1,10 @@
+.fav-place-cards-com{
+    margin: 8px;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff9966, #ff5e62);
+}
